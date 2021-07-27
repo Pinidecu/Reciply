@@ -97,7 +97,7 @@ export default function Form() {
     function handleSubmit(e){
       if(Object.keys(errors).length === 0){
         e.preventDefault();
-        axios.post(`http://localhost:3001/recipe`, input)
+        axios.post(`/recipe`, input)
         .then(response => {
           alert('Receta cargada exitosamente')
           dispatch(getRecetas())

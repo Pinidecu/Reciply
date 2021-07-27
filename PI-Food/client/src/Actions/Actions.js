@@ -20,7 +20,7 @@ export const RESET_PAGINACION = 'ResetPaginacion';
 
 export function getRecetas (){
     return(dispatch) => {
-        axios.get(`http://localhost:3001/allapirecipes`)
+        axios.get(`/allapirecipes`)
         .then(r =>{
             return r.data.map(d=>{
                 if(d.diets.length>0 && d.origen){
@@ -61,7 +61,7 @@ export function clearDetalle() {
 export function getAPIDetalle (id){
     console.log('entro')
     return(dispatch) => {
-        axios.get(`http://localhost:3001/recipesapi/${id}`)
+        axios.get(`/recipesapi/${id}`)
         .then(response => {
             dispatch({ type:GET_API_DETALLE, payload:response.data});
         });
@@ -70,7 +70,7 @@ export function getAPIDetalle (id){
 
 /* export function getDBDetalle (id){
     return(dispatch) => {
-        axios.get(`http://localhost:3001/recipes/${id}`)
+        axios.get(`/recipes/${id}`)
         .then(r =>{
             return {...r.data, diets: r.data.diets.map(e=> e.nombre)}
             })
@@ -82,7 +82,7 @@ export function getAPIDetalle (id){
 
 export function getDBDetalle (id){
     return(dispatch) => {
-        axios.get(`http://localhost:3001/recipes/${id}`)
+        axios.get(`/recipes/${id}`)
         .then(response => {
             dispatch({ type:GET_DB_DETALLE, payload:response.data});
         });
@@ -92,9 +92,8 @@ export function getDBDetalle (id){
 
 export function getBusqueda (input){
     return(dispatch) => {
-        axios.get(`http://localhost:3001/recipesapi?name=${input}`)
+        axios.get(`/recipesapi?name=${input}`)
         .then(response => {
-            console.log('yyyyyyyyyyyyy' , response.data)
             dispatch({ type:GET_BUSQUEDA, payload:response.data});
         })
         .catch (e =>{
@@ -106,7 +105,7 @@ export function getBusqueda (input){
 
 export function getDiets (){
     return(dispatch) => {
-        axios.get(`http://localhost:3001/types`)
+        axios.get(`/types`)
         .then(response => {
             dispatch({ type:GET_DIETS, payload:response.data});
         });
@@ -115,7 +114,7 @@ export function getDiets (){
 
 export function postRecipe (input){
     return(dispatch) => {
-        axios.post(`http://localhost:3001/recipe`, input)
+        axios.post(`/recipe`, input)
         .then(response => {
             dispatch({ type:GET_DIETS, payload:response.data});
         });
