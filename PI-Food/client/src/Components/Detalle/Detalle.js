@@ -75,7 +75,7 @@ function Receta(props) {
                         </div>
                     </div>
                 </div>
-                {validdiets && validdish ?
+                {validdiets || validdish ?
                     <div className={s.listas}>
                         {validdiets ? 
                             <div className={s.lista}>

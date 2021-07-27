@@ -68,6 +68,18 @@ export function getAPIDetalle (id){
     }
 }
 
+/* export function getDBDetalle (id){
+    return(dispatch) => {
+        axios.get(`http://localhost:3001/recipes/${id}`)
+        .then(r =>{
+            return {...r.data, diets: r.data.diets.map(e=> e.nombre)}
+            })
+        .then(response => {
+            dispatch({ type:GET_DB_DETALLE, payload:response});
+        });
+    }
+} */
+
 export function getDBDetalle (id){
     return(dispatch) => {
         axios.get(`http://localhost:3001/recipes/${id}`)
@@ -76,6 +88,7 @@ export function getDBDetalle (id){
         });
     }
 }
+
 
 export function getBusqueda (input){
     return(dispatch) => {

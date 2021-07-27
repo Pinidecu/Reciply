@@ -58,7 +58,17 @@ export default function Orden() {
                 return -1;
             }
             return 0;
-        })));
+        })))}
+        else if(orden==='hs+'){
+            dispatch(ordenar(recetas.sort(function (a, b) {
+                if (a.healthScore > b.healthScore) {
+                    return 1;
+                }
+                if (a.healthScore < b.healthScore) {
+                    return -1;
+                }
+                return 0;
+            })));
     }else{
         dispatch(ordenar(recetas))
         }
@@ -73,6 +83,8 @@ export default function Orden() {
             <input type="radio" name="orden" value="za" id="za" onChange={filtrado}/><label htmlFor='za'>ZA</label>
             <input type="radio" name="orden" value="p-" id="p-" onChange={filtrado}/><label htmlFor='p-'>P-</label>
             <input type="radio" name="orden" value="p+" id="p+" onChange={filtrado}/><label htmlFor='p+'>P+</label>
+            <input type="radio" name="orden" value="hs+" id="hs+" onChange={filtrado}/><label htmlFor='hs+'>Hs+</label>
+
         </div>
     </form>
   )
