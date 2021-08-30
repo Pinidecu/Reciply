@@ -7,7 +7,7 @@ export default function Home() {
       <div className={s.fullscreen}>
         <div className={s.centro}>
             <img className={s.logo} src={logo} alt="img" />
-            <a className={s.button} href='/home'>Entrar</a>
+            <a className={s.button} href='/home'>Entrar!</a>
         </div>
       </div>
     )
